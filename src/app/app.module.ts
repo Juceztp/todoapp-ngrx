@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
@@ -27,13 +28,14 @@ import { TodoAddComponent } from './todo/todo-add/todo-add.component';
   ],
   imports: [
     BrowserModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
+    ReactiveFormsModule,
     StoreModule.forRoot({
       todos: todoReducer
     }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
